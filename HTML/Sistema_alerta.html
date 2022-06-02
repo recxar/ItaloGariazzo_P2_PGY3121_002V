@@ -87,16 +87,11 @@
                 console.log(data);
                 
                 $("#tbody_ultimos_sismos").empty();
-                $.each(data.Ultimos_sismos, function(o, {reference, magnitude, latitude, longitude, local_time}){
-                    $("#tbody_ultimos_sismos").append(createRowUltimossismos(reference, magnitude, latitude, longitude, local_time));
-                
-
-
-                }) 
                 
                 $.each(data.ultimos_sismos_chile, function(i, {reference, magnitude, latitude, longitude, local_time}){
                     $("#tbody_ultimos_sismos").append(createRowUltimosSismosChile(reference, magnitude, latitude, longitude, local_time));
                    
+                
                 
             
                     
