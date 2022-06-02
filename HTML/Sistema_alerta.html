@@ -49,7 +49,7 @@
                                 <option value="ultimos_sismos_chile">Últimos 15 sismos en Chile</option>
                                 <option value="Últimos_Tsunamis_chile">Últimos 16 Tsunamis en Chile</option>
                                 <option value="Ultimas_alertas_e_informaciones_de_Onemi.">Últimas alertas e informaciones de la Onemi</option>
-                                <option value="Últimos_sismos_en_el_Mundo">Últimos en el Mundo</option>
+                                <option value="Ultimos_sismos">Últimos en el Mundo</option>
                             </select>
                             <br>
                         </div> 
@@ -87,12 +87,35 @@
                 console.log(data);
                 
                 $("#tbody_ultimos_sismos").empty();
+                $.each(data.Ultimos_sismos, function(o, {reference, magnitude, latitude, longitude, local_time}){
+                    $("#tbody_ultimos_sismos").append(createRowUltimossismos(reference, magnitude, latitude, longitude, local_time));
+                
+
+
+                }) 
                 
                 $.each(data.ultimos_sismos_chile, function(i, {reference, magnitude, latitude, longitude, local_time}){
                     $("#tbody_ultimos_sismos").append(createRowUltimosSismosChile(reference, magnitude, latitude, longitude, local_time));
+                   
+                
+            
+                    
+                
+
+
+
                 }) 
+                
+
+
+                
             }) 
+            
+
+            
         })
+        
+        
 
 
   </script>
