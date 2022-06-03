@@ -47,9 +47,9 @@
                             <select id="id_alerta" class="form-control">
                                 <option value="0">Seleccione un tipo de alerta…</option>
                                 <option value="ultimos_sismos_chile">Últimos 15 sismos en Chile</option>
-                                <option value="Últimos_Tsunamis_chile">Últimos 16 Tsunamis en Chile</option>
-                                <option value="Ultimas_alertas_e_informaciones_de_Onemi.">Últimas alertas e informaciones de la Onemi</option>
-                                <option value="Ultimos_sismos">Últimos en el Mundo</option>
+                                <option value="tsunami_chile">Últimos 16 Tsunamis en Chile</option>
+                                <option value="onemi">Últimas alertas e informaciones de la Onemi</option>
+                                <option value="ultimos_sismos">Últimos en el Mundo</option>
                             </select>
                             <br>
                         </div> 
@@ -90,23 +90,79 @@
                 
                 $.each(data.ultimos_sismos_chile, function(i, {reference, magnitude, latitude, longitude, local_time}){
                     $("#tbody_ultimos_sismos").append(createRowUltimosSismosChile(reference, magnitude, latitude, longitude, local_time));
-                   
-                
-                
-            
-                    
+             
                 
 
-
-
-                }) 
-                
+                })
 
 
                 
             }) 
             
 
+            
+        })
+
+        $('#id_alerta').change(function() {
+            $.get(getBasePath($('#id_alerta').val()),
+            function(data){
+                console.log(data);
+                
+               
+                
+                $.each(data.ultimos_sismos, function(f, {reference, magnitude, latitude, longitude, utc_time}){
+                    $("#tbody_ultimos_sismos").append(createRowUltimosSismos(reference, magnitude, latitude, longitude, utc_time));
+             
+                
+
+                })
+
+                
+            }) 
+            
+
+            
+        })
+
+        $('#id_alerta').change(function() {
+            $.get(getBasePath($('#id_alerta').val()),
+            function(data){
+                console.log(data);
+                
+               
+                
+                $.each(data.tsunami_chile, function(a, {reference, magnitude, latitude, longitude, local_time}){
+                    $("#tbody_ultimos_sismos").append(createRowTsuamiChile(reference, magnitude, latitude, longitude, local_time));
+             
+                
+
+                })
+                
+
+                
+            }) 
+            
+            
+        })
+
+        $('#id_alerta').change(function() {
+            $.get(getBasePath($('#id_alerta').val()),
+            function(data){
+                console.log(data);
+                
+               
+                
+                $.each(data.onemi, function(e, {post_title,alert_region,alert_date}){
+                    $("#tbody_ultimos_sismos").append(createRowTsuamiChile(post_title,alert_region,alert_date));
+             
+                
+
+                })
+                
+
+                
+            }) 
+            
             
         })
         
