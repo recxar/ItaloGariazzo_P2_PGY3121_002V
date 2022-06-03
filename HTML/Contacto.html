@@ -50,15 +50,21 @@
                         <div class="form-group">
                             <label id="lblNombre" for="nombreUsuario">Nombre</label>
                             <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Ingrese su nombre..."></input>
+                            
                             <br/>
                             <label for="passwordUsuario">Contraseña</label>
                             <input type="password" class="form-control" id="passwordUsuario" name="passwordUsuario" placeholder="Ingrese su contraseña..."></input>
+                            
                             <br/>
-                            <label for="emailUsuario">Direccion de correo</label>
-                            <input type="email" class="form-control" id="emailUsuario" name="emailUsuario" placeholder="Ingrese su correo..."></input>
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" name="email" id="email" class="form-control">
+                
+               
+                    </button>
                             <br/>
                             <label for="telefonoUsuario">Telefono de contacto</label>
                             <input type="telefono" class="form-control" id="telefonoUsuario" name="telefonoUsuario" placeholder="Ingrese su telefono..."></input>
+                            
                             <br/>
                          
                             
@@ -82,16 +88,25 @@
                             <input type="mensaje" class="form-control" id="mensajeUsuario" name="mensajeUsuario" placeholder="Ingrese su mensaje..."></input>
                             <br/>
                 
-                            <button onclick="validarFormulario(this)" >submit</button>
+                            <div class="form-group">
+                                <button type="button" id="validate" class="btn btn-primary">
+                                    Validar
+                                </button>
                             <input type="reset" value="Limpiar"></input>
                 
     
         
 
         <script >
-    
-
-
+                   
+            $('#validate').click(function() {
+                var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+                if (regex.test($('#email').val().trim())) {
+                    alert('Correo validado');
+                    } else {
+                        alert('La direccón de correo no es válida');
+                        }});
+         
 
 
             $("#form1").submit(
@@ -121,10 +136,10 @@
                 var selected_region = $('#id_region').val();
                 $.get(endpoint_region+selected_region+"/",
                 function(data){
-                    // $("#id_provincia").html("<option value=\"0\">Seleccione una provincia...</option>");
+                  
                     $("#id_provincia").empty().append(new Option("Seleccione una provincia...", 0));
     
-                    // $("#id_comuna").html("<option value=\"0\">Seleccione una comuna...</option>");
+                    
                     $("#id_comuna").empty().append(new Option("Seleccione una comuna...", 0));;
     
                     $.each(data.data, function(i, {id, name, regionId}){
@@ -144,7 +159,8 @@
                     })
                 }) 
             })
-    
+
+        
     
       </script>
 
