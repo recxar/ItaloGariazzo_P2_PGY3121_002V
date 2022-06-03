@@ -13,11 +13,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="icon" type="image/x-icon" href="../Imagenes/clipart1433951.png">
-    <link rel="stylesheet" href="/CSS/Diseño.css">
+    <link rel="stylesheet" href="../CSS/Diseño.css">
     
     <title>Sismologia</title>
 </head>
-<body class="Fondo">
+<body class="Fondo" >
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
         <a class="navbar-brand" href="../HTML/Index.html"><img src="../Imagenes/clipart1433951.png"  width="150" height="150"></a>
@@ -39,6 +39,7 @@
         </div>
       </nav>
     </header>
+
     
 
     <div class="container-fluid">
@@ -49,7 +50,7 @@
                         <legend>Formulario de contacto</legend>    
                         <div class="form-group">
                             <label id="lblNombre" for="nombreUsuario">Nombre</label>
-                            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Ingrese su nombre..."></input>
+                            <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" placeholder="Ingrese su nombre..." required></input>
                             
                             <br/>
                             <label for="passwordUsuario">Contraseña</label>
@@ -57,7 +58,7 @@
                             
                             <br/>
                             <label for="email">Correo electrónico</label>
-                            <input type="email" name="email" id="email" class="form-control">
+                            <input type="email" name="email" id="email" class="form-control" required>
                 
                
                     </button>
