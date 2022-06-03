@@ -1,20 +1,12 @@
-function getBasePath(service){
-    return "https://chilealerta.com/api/query/?user=demo&select="+service;
+function getBasePath(service) {
+    return "https://chilealerta.com/api/query/?user=demo&select=" + service;
 }
 
-function createRowUltimosSismosChile(referencia, magnitud, latitud, longitud, hora) {
-    return '<tr><td>'+referencia+'</td><td>'+magnitud+'</td><td>'+latitud+'</td><td>'+longitud+'</td><td>'+hora+'</td></tr>';
+function createRowDisaster(reference, magnitude, latitude, longitude, local_time) {
+    return '<tr><td>' + reference + '</td><td>' + magnitude + '</td><td>' + latitude + '</td><td>' + longitude + '</td><td>' + local_time + '</td></tr>';
 }
 
-function createRowUltimosSismos(referencia, magnitud, latitud, longitud, hora) {
-    return '<tr><td>'+referencia+'</td><td>'+magnitud+'</td><td>'+latitud+'</td><td>'+longitud+'</td><td>'+hora+'</td></tr>';
-}
-
-function createRowTsuamiChile(referencia, magnitud, latitud, longitud, hora) {
-    return '<tr><td>'+referencia+'</td><td>'+magnitud+'</td><td>'+latitud+'</td><td>'+longitud+'</td><td>'+hora+'</td></tr>';
-}
-
-function createRowOnemi(Titulo,alerta_region, alerta_fecha) {
-    return '<tr><td>'+Titulo+'</td><td>'+alerta_region+'</td><td>'+alerta_fecha;
+function createRowDisasterr(reference, magnitude, latitude, longitude, utc_time) {
+    return '<tr><td>' + reference + '</td><td>' + magnitude + '</td><td>' + latitude + '</td><td>' + longitude + '</td><td>' + utc_time + '</td></tr>';
 }
 
